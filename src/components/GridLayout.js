@@ -1,20 +1,10 @@
 import CardExample from "./CardExample";
+import PropTypes from 'prop-types';
 
+ const GridLayout = (props) => {
 
- const GridLayout = () => {
-   const list = [1, 2, 3, 4, 5];
-
-   const getCards = () => {
-     var cards = []
-     for (let index = 0; index < list.length; index++) {
-       const element = <CardExample></CardExample>
-       cards.push(element)
-     }
-
-     return cards;
-   }
    const state = {
-     items: getCards()
+     items: props.children
    }
 
 
@@ -23,7 +13,7 @@ import CardExample from "./CardExample";
      let counter = 1;
      state.items.forEach((item, idx) => {
        rows[counter] = rows[counter] ? [...rows[counter]] : [];
-       if (idx % 3 === 0 && idx !== 0) {
+       if (idx % props.rowLength === 0 && idx !== 0) {
          counter++;
          rows[counter] = rows[counter] ? [...rows[counter]] : [];
          rows[counter].push(item);
@@ -38,7 +28,7 @@ import CardExample from "./CardExample";
 
 
    return (
-     <section style={{  }} >
+     <section  >
        <div >
          {Object.keys(rows).map(row => {
            return (
@@ -56,3 +46,7 @@ import CardExample from "./CardExample";
  }
 
  export default GridLayout;
+
+ GridLayout.propTypes = {
+  rowLength: PropTypes.number.isRequired
+};
