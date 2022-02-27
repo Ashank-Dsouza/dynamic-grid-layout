@@ -4,7 +4,7 @@ import { Card, CardText, CardBody, CardTitle,  } from 'reactstrap';
 const CardExample = () => {
   return (
     <div>
-      <Card>
+      <Card style={{backgroundColor: 'aqua'}}>
         <CardBody>
           <CardTitle style={{fontSize: 25}}>Speed and Velocity</CardTitle>
           <CardText>The speed of the train is 12 km/hr. </CardText>

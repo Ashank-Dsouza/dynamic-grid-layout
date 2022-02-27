@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
    const state = {
      items: props.children
    }
+   console.log("the cildren are: ", props.children);
 
 
    const _createItemList = () => {
